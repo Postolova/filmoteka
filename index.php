@@ -5,6 +5,7 @@ require('database.php');
 $link = db_connect();
 
 require('models/films.php');
+require('functions/login-function.php');
 
 if ( @$_GET['action'] == 'delete') {
 	$resault = film_delete($link, $_GET['id']);
