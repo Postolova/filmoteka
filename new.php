@@ -18,7 +18,7 @@ if ( array_key_exists('add-film', $_POST) ) {
 	}
 
 	if ( empty($errors) ) {
-		$resault = film_new($link, $_POST['title'], $_POST['genre'], $_POST['year']);
+		$resault = film_new($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description']);
 
 		if ( $resault ) {
 			$resaultSuccess = "<p>Фильм был успешно добавлен!</p>";

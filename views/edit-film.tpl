@@ -1,19 +1,7 @@
-<?php if ($resaultSuccess != '') { ?>
-	<div class="info-success"><?=$resaultSuccess?></div>
-<?php } ?>
-
-<?php if ($resaultInfo != '') { ?>
-	<div class="info-notification"><?=$resaultInfo?></div>
-<?php } ?>
-
-<?php if ($resaultError != '') { ?>
-	<div class="error"><?=$resaultError?></div>
-<?php } ?>
-
 <h1 class="title-1">Редактировать фильм</h1>
 
 <div class="panel-holder mt-30 mb-40">
-        <form action="edit.php?id=<?=$film['id']?>" method="POST">
+        <form enctype="multipart/form-data" action="edit.php?id=<?=$film['id']?>" method="POST">
           <?php
 	          if ( !empty($errors) ) {
 	            foreach ($errors as $key => $value) {
@@ -32,6 +20,10 @@
               <label class="label-title">Год</label>
               <input class="input" type="text" placeholder="2000" name="year" value="<?=$film['year']?>"/>
             </div>
+          </div>
+          <textarea class="textarea mb-20" name="description" placeholder="Введите описание фильма"><?=$film['description']?></textarea>
+          <div class="mb-20">
+          <input type="file" name="photo"/>
           </div>
           <input type="submit" class="button" value="Сохранить" name="update-film">
         </form>

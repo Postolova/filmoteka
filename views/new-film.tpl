@@ -1,15 +1,3 @@
-<?php if ($resaultSuccess != '') { ?>
-	<div class="info-success"><?=$resaultSuccess?></div>
-<?php } ?>
-
-<?php if ($resaultInfo != '') { ?>
-	<div class="info-notification"><?=$resaultInfo?></div>
-<?php } ?>
-
-<?php if ($resaultError != '') { ?>
-	<div class="error"><?=$resaultError?></div>
-<?php } ?>
-
 <h1 class="title-1">Добавить новый фильм</h1>
 
 <div class="panel-holder mt-30 mb-40">
@@ -34,6 +22,7 @@
               <input class="input" type="text" placeholder="2000" name="year"/>
             </div>
           </div>
+          <textarea class="textarea mb-20" name="description" placeholder="Введите описание фильма"></textarea>
           <input type="submit" class="button" value="Добавить" name="add-film">
         </form>
       </div>

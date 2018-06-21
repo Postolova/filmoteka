@@ -20,12 +20,20 @@
 </head>
 <body>
     <div class="container user-content pt-35">
-        <?php if ($resaultInfo != '') { ?>
-           <div class="info-notification"><?=$resaultInfo?></div>
-        <?php } ?>
         <div class="admin-nav mb-50">
             <a href="index.php" class="admin-nav__link">Все фильмы</a>
             <a href="new.php" class="admin-nav__link">Добавить новый фильм</a>
         </div>
+<?php if ($resaultSuccess != '') { ?>
+    <div class="info-success"><?=$resaultSuccess?></div>
+<?php } ?>
+
+<?php if ($resaultInfo != '') { ?>
+    <div class="info-notification"><?=$resaultInfo?></div>
+<?php } ?>
+
+<?php if ($resaultError != '') { ?>
+    <div class="error"><?=$resaultError?></div>
+<?php } ?>
     
         

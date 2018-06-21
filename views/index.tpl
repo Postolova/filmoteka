@@ -3,15 +3,25 @@
       <?php foreach($films as $key => $value) { ?>
 
           <div class="card mb-20">
-            <div class="card-header">
-              <h4 class="title-4"><?=$films[$key]['title']?></h4>
-              <div>
-              <a href="edit.php?id=<?=$films[$key]['id']?>" class="button button--edit">Редактировать</a>
-              <a href="?action=delete&id=<?=$films[$key]['id']?>" class="button button--delete">Удалить</a>
+            <div class="row">
+              <div class="col-auto">
+                <img height="200" src="<?=HOST?>data/films/min/<?=$films[$key]['photo']?>" alt="<?=$films[$key]['title']?>">
+              </div>
+              <div class="col">
+                <div class="card-header">
+                  <h4 class="title-4"><?=$films[$key]['title']?></h4>
+                <div>
+                 <a href="edit.php?id=<?=$films[$key]['id']?>" class="button button--edit">Редактировать</a>
+                 <a href="?action=delete&id=<?=$films[$key]['id']?>" class="button button--delete">Удалить</a>
+                </div>
+                </div>
+                <div class="badge"><?=$films[$key]['genre']?></div>
+                <div class="badge"><?=$films[$key]['year']?></div>
+                <div class="mt-20">
+                  <a href="single.php?id=<?=$films[$key]['id']?>" class="button">Подробнее</a>
+                </div>
               </div>
             </div>
-            <div class="badge"><?=$films[$key]['genre']?></div>
-            <div class="badge"><?=$films[$key]['year']?></div>
           </div>
 
       <?php } ?>
