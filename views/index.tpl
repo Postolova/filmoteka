@@ -13,8 +13,8 @@
                 <div>
 
                 <?php 
-                  if ( isset($SESSION['user']) ) {
-                      if( $SESSION['user'] == 'admin') { 
+                  if ( isset($_SESSION['user']) ) {
+                      if( $_SESSION['user'] == 'admin') { 
                   ?>
                     <a href="edit.php?id=<?=$films[$key]['id']?>" class="button button--edit">Редактировать</a>
                     <a href="?action=delete&id=<?=$films[$key]['id']?>" class="button button--delete">Удалить</a>

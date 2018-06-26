@@ -52,7 +52,7 @@
     <div class="error"><?=$resaultError?></div>
 <?php } ?>
     
-    <?php if ( isset($_COOKIE['user-name']) ) { ?>
+<!--     <?php if ( isset($_COOKIE['user-name']) ) { ?>
     <div class="mb-50">
         <?php if ( isset($_COOKIE['user-city']) ) { ?>
             Привет, <?=$_COOKIE['user-name']?> из <?=$_COOKIE['user-city']?>!
@@ -60,6 +60,6 @@
              Привет, <?=$_COOKIE['user-name']?>!
         <?php } ?>
     </div>
-    <?php } ?>
+    <?php } ?> -->
     
         
