@@ -40,16 +40,16 @@
             <?php } ?>
 
         </div>
-<?php if ($resaultSuccess != '') { ?>
-    <div class="info-success"><?=$resaultSuccess?></div>
+<?php if ($resultSuccess != '') { ?>
+    <div class="info-success"><?=$resultSuccess?></div>
 <?php } ?>
 
-<?php if ($resaultInfo != '') { ?>
-    <div class="info-notification"><?=$resaultInfo?></div>
+<?php if ($resultInfo != '') { ?>
+    <div class="info-notification"><?=$resultInfo?></div>
 <?php } ?>
 
-<?php if ($resaultError != '') { ?>
-    <div class="error"><?=$resaultError?></div>
+<?php if ($resultError != '') { ?>
+    <div class="error"><?=$resultError?></div>
 <?php } ?>
     
 <!--     <?php if ( isset($_COOKIE['user-name']) ) { ?>

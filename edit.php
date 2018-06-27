@@ -20,15 +20,16 @@ if ( array_key_exists('update-film', $_POST) ) {
   }
 
   if ( empty($errors) ) {
-    $resault = film_update($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $_GET['id']);
+    $result = film_update($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $_GET['id']);
 
-    if ( $resault ) {
-      $resaultSuccess = "<p>Фильм был успешно обновлен!</p>";
+    if ( $result ) {
+      $resultSuccess = "<p>Фильм был успешно обновлен!</p>";
     } else {
-      $resaultSuccess = "<p>Упс. Что-то пошло не так.</p>";
+      $resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
     }
   }
 }
+
 $film = get_film($link, $_GET['id']);
 
 include('views/head.tpl');

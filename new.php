@@ -19,16 +19,22 @@ if ( array_key_exists('add-film', $_POST) ) {
 	}
 
 	if ( empty($errors) ) {
-		$resault = film_new($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description']);
 
-		if ( $resault ) {
-			$resaultSuccess = "<p>Фильм был успешно добавлен!</p>";
+		$result = film_new($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description']);
+		
+		if ( $result ) {
+			$resultSuccess = "<p>Фильм был успешно добавлен!</p>";
+
+			// $lastId = mysqli_insert_id($link);
+			// header("Location: http://".$_SERVER['HTTP_HOST']."/edit.php?id=".$lastId);
 		} else {
-			$resaultSuccess = "<p>Упс. Что-то пошло не так.</p>";
+			$resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
 		}
 	}
 }
 
+$film = get_film($link, $_GET['id']);
+echo $lastId;
 include('views/head.tpl');
 include('views/new-film.tpl');
 include('views/footer.tpl');

@@ -15,22 +15,28 @@ function films_all($link){
 
 function film_new($link, $title, $genre, $year, $description){
 
-	if ( empty($errors) ) {
-	$query = "INSERT INTO `filmoteka` (`title`, `genre`, `year`, `description`) VALUES (
-	  '". mysqli_real_escape_string($link, $_POST['title']) ."',
-	  '". mysqli_real_escape_string($link, $_POST['genre']) ."',
-	  '". mysqli_real_escape_string($link, $_POST['year']) ."',
-	  '". mysqli_real_escape_string($link, $_POST['description']) ."'
+	if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != ""  ) {
+		$photo = photo();
+	}
+
+
+	$query = "INSERT INTO `filmoteka` (`title`, `genre`, `year`, `description`, `photo`) VALUES (
+	'". mysqli_real_escape_string($link, $_POST['title']) ."',
+	'". mysqli_real_escape_string($link, $_POST['genre']) ."',
+	'". mysqli_real_escape_string($link, $_POST['year']) ."',
+	'". mysqli_real_escape_string($link, $_POST['description']) ."',
+	'". mysqli_real_escape_string($link, $photo) ."'
 	)";
 
 	if ( mysqli_query($link, $query) ) {
-		$resault = true;
+		$result = true;
 	} else {
-		$resault = false;
+		$result = false;
 	}
+	return $result;
+	return $lastId;
 
-	return $resault;
-	}
+
 }
 
 function get_film($link, $id){
@@ -49,7 +55,42 @@ function get_film($link, $id){
 function film_update($link, $title, $genre, $year, $description, $id){
 
 	if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != ""  ) {
-		$fileName = $_FILES["photo"]["name"];
+		$photo = photo();
+	}
+
+
+   $query = "UPDATE `filmoteka` 
+               SET title = '". mysqli_real_escape_string($link, $title) ."', 
+                   genre = '". mysqli_real_escape_string($link, $genre) ."', 
+                   year = '". mysqli_real_escape_string($link, $year) ."',
+                   description = '". mysqli_real_escape_string($link, $description) ."',
+                   photo = '". mysqli_real_escape_string($link, $photo) ."'
+                   WHERE id = '". mysqli_real_escape_string($link, $id) ."' LIMIT 1";
+
+	if ( mysqli_query($link, $query) ) {
+		$result = true;
+	} else {
+		$resultError = fales;
+	}
+
+	return $result;
+}
+
+function film_delete($link, $id){
+  	$query = "DELETE FROM `filmoteka` WHERE id = '".mysqli_real_escape_string($link, $id)."' LIMIT 1";
+
+	mysqli_query($link, $query);
+
+	if ( mysqli_affected_rows($link) > 0) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function photo() {
+	$fileName = $_FILES["photo"]["name"];
 		$fileTmpLoc = $_FILES["photo"]["tmp_name"];
 		$fileType =  $_FILES["photo"]["type"];
 		$fileSize =  $_FILES["photo"]["size"];
@@ -89,37 +130,7 @@ function film_update($link, $title, $genre, $year, $description, $id){
 		$img = createThumbnail($target_file, $wmax, $hmax);
 		$img->writeImage($resized_file);
 
-	}
-
-
-   $query = "UPDATE `filmoteka` 
-               SET title = '". mysqli_real_escape_string($link, $title) ."', 
-                   genre = '". mysqli_real_escape_string($link, $genre) ."', 
-                   year = '". mysqli_real_escape_string($link, $year) ."',
-                   description = '". mysqli_real_escape_string($link, $description) ."',
-                   photo = '". mysqli_real_escape_string($link, $db_file_name) ."'
-                   WHERE id = '". mysqli_real_escape_string($link, $id) ."' LIMIT 1";
-
-	if ( mysqli_query($link, $query) ) {
-		$resault = true;
-	} else {
-		$resaultError = fales;
-	}
-
-	return $resault;
-}
-
-function film_delete($link, $id){
-  	$query = "DELETE FROM `filmoteka` WHERE id = '".mysqli_real_escape_string($link, $id)."' LIMIT 1";
-
-	mysqli_query($link, $query);
-
-	if ( mysqli_affected_rows($link) > 0) {
-		$resault = true;
-	} else {
-		$resault = false;
-	}
-	return $resault;
+		return $db_file_name;
 }
 
 

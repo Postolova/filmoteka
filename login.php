@@ -7,9 +7,9 @@ $link = db_connect();
 
 if ( isset($_POST['enter']) ) {
 	$query = "SELECT * FROM `user`";
-	$resault = mysqli_query($link, $query);
+	$result = mysqli_query($link, $query);
 
-	if ( $resault = mysqli_query($link, $query) ) {
+	if ( $result = mysqli_query($link, $query) ) {
 		$user = mysqli_fetch_array($resault);
 	}
 

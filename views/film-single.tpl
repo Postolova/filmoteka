@@ -14,7 +14,7 @@
               if( $_SESSION['user'] == 'admin') { 
           ?>
             <a href="edit.php?id=<?=$film['id']?>" class="button button--edit">Редактировать</a>
-            <a href="index.php?action=delete&id=<?=$films['id']?>" class="button button--delete">Удалить</a>
+            <a href="index.php?action=delete&id=<?=$film['id']?>" class="button button--delete">Удалить</a>
           <?php 
               }
           }
