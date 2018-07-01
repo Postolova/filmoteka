@@ -7,6 +7,8 @@ $link = db_connect();
 require('models/films.php');
 require('functions/login-function.php');
 
+$film = get_film($link, $_GET['id']);
+
 if ( array_key_exists('update-film', $_POST) ) {
 
   if ( $_POST['title'] == '' ) {
@@ -20,7 +22,7 @@ if ( array_key_exists('update-film', $_POST) ) {
   }
 
   if ( empty($errors) ) {
-    $result = film_update($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $_GET['id']);
+    $result = film_update($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $_GET['id'], @$_POST['deleteImg'], $film['photo']);
 
     if ( $result ) {
       $resultSuccess = "<p>Фильм был успешно обновлен!</p>";
@@ -28,6 +30,7 @@ if ( array_key_exists('update-film', $_POST) ) {
       $resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
     }
   }
+
 }
 
 $film = get_film($link, $_GET['id']);

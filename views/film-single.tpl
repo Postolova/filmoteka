@@ -6,8 +6,8 @@
     </div>
     <div class="col">
       <div class="card-header">
-      <h4 class="title-4"><?=$film['title']?></h4>
-      <div>
+      <h4 class="title-4 pt-10"><?=$film['title']?></h4>
+      <div class="pt-10">
         
         <?php 
           if ( isset($_SESSION['user']) ) {

@@ -24,4 +24,9 @@ $(document).ready(function() {
 
 	$(".left-panel").customScrollbar({preventDefaultScroll: true});
 
+	$("#deleteImg").on('click', function(){
+		$('.deletetitle').toggle('display');
+	});
+
+
 });

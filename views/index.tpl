@@ -5,7 +5,11 @@
           <div class="card mb-20">
             <div class="row">
               <div class="col-auto">
-                <img height="200" src="<?=HOST?>data/films/min/<?=$films[$key]['photo']?>" alt="<?=$films[$key]['title']?>">
+                <?php if ( $films[$key]['photo'] == '') { ?>
+                <img width="137" src="<?=HOST . 'data/films/nophoto.jpg'?>" alt="<?=$films[$key]['title']?>">
+                <?php } else { ?>
+                <img height="200" src="<?=HOST . 'data/films/min/' . $films[$key]['photo']?>" alt="<?=$films[$key]['title']?>">
+                 <?php } ?>
               </div>
               <div class="col">
                 <div class="card-header">
