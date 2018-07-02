@@ -31,10 +31,11 @@ if ( array_key_exists('add-film', $_POST) ) {
 			$resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
 		}
 	}
+
 }
 
-$film = get_film($link, $_GET['id']);
-echo $lastId;
+
+
 include('views/head.tpl');
 include('views/new-film.tpl');
 include('views/footer.tpl');

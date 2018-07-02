@@ -17,8 +17,6 @@ function film_new($link, $title, $genre, $year, $description){
 
 	if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != ""  ) {
 		$photo = photo();
-	}
-
 
 	$query = "INSERT INTO `filmoteka` (`title`, `genre`, `year`, `description`, `photo`) VALUES (
 	'". mysqli_real_escape_string($link, $_POST['title']) ."',
@@ -27,6 +25,17 @@ function film_new($link, $title, $genre, $year, $description){
 	'". mysqli_real_escape_string($link, $_POST['description']) ."',
 	'". mysqli_real_escape_string($link, $photo) ."'
 	)";
+
+	} else {
+
+	$query = "INSERT INTO `filmoteka` (`title`, `genre`, `year`, `description`) VALUES (
+	'". mysqli_real_escape_string($link, $_POST['title']) ."',
+	'". mysqli_real_escape_string($link, $_POST['genre']) ."',
+	'". mysqli_real_escape_string($link, $_POST['year']) ."',
+	'". mysqli_real_escape_string($link, $_POST['description']) ."'
+	)";
+
+	}
 
 	if ( mysqli_query($link, $query) ) {
 		$result = true;

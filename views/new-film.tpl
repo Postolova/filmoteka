@@ -11,7 +11,7 @@
 	          }
           ?>
           <label class="label-title">Название фильма</label>
-          <input class="input" type="text" placeholder="Такси 2" name="title" value="<?=$film['title']?>" />
+          <input class="input" type="text" placeholder="Такси 2" name="title"/>
           <div class="row">
             <div class="col">
               <label class="label-title">Жанр</label>

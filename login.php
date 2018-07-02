@@ -10,7 +10,7 @@ if ( isset($_POST['enter']) ) {
 	$result = mysqli_query($link, $query);
 
 	if ( $result = mysqli_query($link, $query) ) {
-		$user = mysqli_fetch_array($resault);
+		$user = mysqli_fetch_array($result);
 	}
 
 	// $userName = 'admin';
