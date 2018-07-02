@@ -1,9 +1,16 @@
 <h1 class="title-1">Информация о фильме</h1>
 <div class="card mb-20">
   <div class="row">
-    <div class="col">
+<!--     <div class="col">
       <img src="<?=HOST?>data/films/full/<?=$film['photo']?>" alt="<?=$film['title']?>">
-    </div>
+    </div> -->
+    <div class="col-auto">
+                <?php if ( $film['photo'] == '') { ?>
+                <img width="137" src="<?=HOST . 'data/films/nophoto.jpg'?>" alt="<?=$film['title']?>">
+                <?php } else { ?>
+                <img height="200" src="<?=HOST . 'data/films/min/' . $film['photo']?>" alt="<?=$film['title']?>">
+                 <?php } ?>
+              </div>
     <div class="col">
       <div class="card-header">
       <h4 class="title-4 pt-10"><?=$film['title']?></h4>

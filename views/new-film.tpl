@@ -11,18 +11,18 @@
 	          }
           ?>
           <label class="label-title">Название фильма</label>
-          <input class="input" type="text" placeholder="Такси 2" name="title"/>
+          <input class="input" type="text" placeholder="Такси 2" name="title" value="<?=empty($_POST) ? $value = '' : $value = $_POST['title']?>"/>
           <div class="row">
             <div class="col">
               <label class="label-title">Жанр</label>
-              <input class="input" type="text" placeholder="комедия" name="genre"/>
+              <input class="input" type="text" placeholder="комедия" name="genre" value="<?=empty($_POST) ? $value = '' : $value = $_POST['genre']?>"/>
             </div>
             <div class="col">
               <label class="label-title">Год</label>
-              <input class="input" type="text" placeholder="2000" name="year"/>
+              <input class="input" type="text" placeholder="2000" name="year" value="<?=empty($_POST) ? $value = '' : $value = $_POST['year']?>"/>
             </div>
           </div>
-          <textarea class="textarea mb-20" name="description" placeholder="Введите описание фильма"></textarea>
+          <textarea class="textarea mb-20" name="description" placeholder="Введите описание фильма"><?=empty($_POST) ? $value = '' : $value = $_POST['description']?></textarea>
           <div class="mb-20">
           <input type="file" name="photo">
           </div>

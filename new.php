@@ -23,10 +23,10 @@ if ( array_key_exists('add-film', $_POST) ) {
 		$result = film_new($link, $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description']);
 		
 		if ( $result ) {
-			$resultSuccess = "<p>Фильм был успешно добавлен!</p>";
-
-			// $lastId = mysqli_insert_id($link);
-			// header("Location: http://".$_SERVER['HTTP_HOST']."/edit.php?id=".$lastId);
+			$lastId = mysqli_insert_id($link);
+			header("Location: http://".$_SERVER['HTTP_HOST']."/edit.php?id=".$lastId);
+			$resultSuccess = '<div class="info-success"><p>Фильм успешно добавлен!</p></div>';
+			$_SESSION['resultSuccess'] = $resultSuccess;
 		} else {
 			$resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
 		}

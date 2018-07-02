@@ -8,7 +8,10 @@ require('models/films.php');
 require('functions/login-function.php');
 
 if ( @$_GET['action'] == 'delete') {
-  $resault = film_delete($link, $_GET['id']);
+	
+  	$film = get_film($link, $_GET['id']);
+
+	$result = film_delete($link, $_GET['id'], $film['photo']);
 
   if ( $resault ) {
     $resaultInfo = "<p>Фильм успешно удален!</p>";

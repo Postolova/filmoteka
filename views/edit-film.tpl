@@ -1,5 +1,10 @@
 <h1 class="title-1">Редактировать фильм</h1>
-
+<?php 
+echo @$_SESSION['resultSuccess'];
+if ( @$_SESSION['resultSuccess'] != '' ) {
+unset($_SESSION['resultSuccess']);
+}
+?>
 <div class="panel-holder mt-30 mb-40">
         <form enctype="multipart/form-data" action="edit.php?id=<?=$film['id']?>" method="POST">
           <?php
