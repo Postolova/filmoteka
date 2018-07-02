@@ -73,7 +73,7 @@ function film_update($link, $title, $genre, $year, $description, $id, $deleteImg
 
            $result = mysqli_query($link, $query);
 
-	} else if ( $_FILES['photo']['name'] == '' ) {
+	} else if ( @$_FILES['photo']['name'] == '' ) {
 		$query = "UPDATE `filmoteka` 
            SET title = '". mysqli_real_escape_string($link, $title) ."', 
                genre = '". mysqli_real_escape_string($link, $genre) ."', 

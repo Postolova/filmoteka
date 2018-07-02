@@ -29,25 +29,23 @@ unset($_SESSION['resultSuccess']);
             </div>
           </div>
           <textarea class="textarea mb-20" name="description" placeholder="Введите описание фильма"><?=($_POST) ? $_POST['description'] : $film['description']?></textarea>
+          <?php if( $film['photo'] == '' ) { ?>
           <div class="mb-20">
           <input type="file" name="photo" value="текст">
           </div>
-
+          <?php } ?>
           <div class="file-upload mt-20">
-
-            <?php if ( $film['photo'] == '') { ?>
-                 <img width="137" src="<?=HOST?>data/films/nophoto.jpg?>" alt="<?=$film['title']?>">
-                <?php } else { ?>
+            <?php if ( $film['photo'] != '') { ?>
                   <img src="<?=HOST . 'data/films/min/' . $film['photo']?>">            
                   <label for="deleteImg" class="button button--delete">Удалить</label>
                   <input id="deleteImg" type="checkbox" name="deleteImg">
                  <?php } ?>
 
             <div class="deletetitle mt-10">Нажмите "Сохранить", чтобы удалить фотографию</div>
-              
+            <input type="submit" class="button" value="Сохранить" name="update-film">
           </div>
-
-          <input type="submit" class="button mt-30" value="Сохранить" name="update-film">
+          
+          
         </form>
         
       </div>
