@@ -30,10 +30,11 @@ if ( array_key_exists('update-film', $_POST) ) {
       $resultSuccess = "<p>Упс. Что-то пошло не так.</p>";
     }
   }
+  
+$film = get_film($link, $_GET['id']);
 
 }
 
-$film = get_film($link, $_GET['id']);
 
 include('views/head.tpl');
 include('views/edit-film.tpl');
