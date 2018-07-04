@@ -30,7 +30,7 @@
 
             <?php
             if ( !isAdmin() ) { ?>
-            <a href="request.php" class="admin-nav__link">Указать информации</a>
+            <!-- <a href="request.php" class="admin-nav__link">Указать информации</a> -->
             <a href="login.php" class="admin-nav__link">Вход администрации</a>
             <?php } ?>
 
